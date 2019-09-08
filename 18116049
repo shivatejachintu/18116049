@@ -1,0 +1,35 @@
+mov r0,1
+mov r1, 0
+mov r2, 0
+mov r7, 0
+loop1:
+mov r1, r1+1
+mul r3, r1, r1
+mul r3, r3, r1
+cmp r3, r0
+mov r2, r1
+blt .loop2
+mov r0, r0+1 
+mov r1, 0 
+mov r2, 0
+mov r7, 0 
+mul r6, r0, r0
+mul r6, r6, r0
+.loop1
+
+loop2:
+mov r2, r2+1
+mul r4, r2, r2
+mul r4, r4, r2
+add r5, r3, r4  
+cmp r5, r6 
+beq .add_r7_1
+cmp r7, 2 
+beq .print_r0 
+cmp r4, r0
+blt .loop2
+.loop1
+
+add_r7_1:
+add r7, r7+1;
+/*print value of r0*/ 
